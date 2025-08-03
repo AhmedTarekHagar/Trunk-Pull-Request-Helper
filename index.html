@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pull Request Helper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <form>
+        <div class="d-flex flex-column mb-3">
+            <div class="d-flex me-4">
+                <label class="w-25" for="workItemTitle">User Story Title</label>
+                <input class="w-75" name="workItemTitle" type="text" id="workItemTitle">
+            </div>
+            <div class="d-flex me-4">
+                <label class="w-25" for="type">Pull Request Type</label>
+                <input class="w-75" name="type" type="text" id="type">
+                <!-- <select name="type" id="type">
+                    <option value="feat">feat</option>
+                    <option value="fix">fix</option>
+                    <option value="chore">chore</option>
+                    <option value="refactor">refactor</option>
+                </select> -->
+            </div>
+            <div class="d-flex me-4">
+                <label class="w-25" for="area">Area Name</label>
+                <input class="w-75" name="area" type="text" id="area">
+            </div>
+            <div class="d-flex me-4">
+                <label class="w-25" for="workItem01">Work Item 1</label>
+                <input class="w-25" name="workItem01" type="number" id="workItem01">
+                <button class="ms-2 fa-solid fa-plus" type="button"></button>
+            </div>
+            <button type="button" id="generate">Generate</button>
+        </div>
+
+        <div class="flex-column mb-3">
+            <div class="d-flex me-4">
+                <label class="w-25" for="branchName">Branch Name</label>
+                <input class="w-75" name="branchName" type="text" id="branchName" disabled>
+                <span class="fa-regular fa-copy ms-2"></span>
+            </div>
+            <div class="d-flex me-4">
+                <label class="w-25" for="commitMessage">Commit Message</label>
+                <input class="w-75" name="commitMessage" type="text" id="commitMessage" disabled>
+                <span class="fa-regular fa-copy ms-2"></span>
+            </div>
+            <div class="d-flex me-4">
+                <label class="w-25" for="pullRequestTitle">Pull Request Title</label>
+                <input class="w-75" name="pullRequestTitle" type="text" id="pullRequestTitle" disabled>
+                <span class="fa-regular fa-copy ms-2"></span>
+            </div>
+        </div>
+    </form>
+
+    <script src="main.js"></script>
+</body>
+</html>
