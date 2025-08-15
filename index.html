@@ -11,13 +11,13 @@
     <form>
         <div class="d-flex flex-column mb-3">
             <div class="d-flex me-4">
-                <label class="w-25" for="workItemTitle">User Story Title</label>
-                <input class="w-75" name="workItemTitle" type="text" id="workItemTitle">
+                <label class="w-25" for="workItemTitleElement">User Story / Work Item Title</label>
+                <input class="w-75" name="workItemTitleElement" type="text" id="workItemTitleElement">
             </div>
             <div class="d-flex me-4">
-                <label class="w-25" for="type">Pull Request Type</label>
-                <input class="w-75" name="type" type="text" id="type">
-                <!-- <select name="type" id="type">
+                <label class="w-25" for="typeElement">Pull Request Type</label>
+                <input class="w-75" name="typeElement" type="text" id="typeElement">
+                <!-- <select name="type" id="typeElement">
                     <option value="feat">feat</option>
                     <option value="fix">fix</option>
                     <option value="chore">chore</option>
@@ -25,32 +25,32 @@
                 </select> -->
             </div>
             <div class="d-flex me-4">
-                <label class="w-25" for="area">Area Name</label>
-                <input class="w-75" name="area" type="text" id="area">
+                <label class="w-25" for="areaElement">Area Name</label>
+                <input class="w-75" name="areaElement" type="text" id="areaElement">
             </div>
             <div class="d-flex me-4">
-                <label class="w-25" for="workItem01">Work Item 1</label>
-                <input class="w-25" name="workItem01" type="number" id="workItem01">
+                <label class="w-25" for="workItem01Element">Work Item 1</label>
+                <input class="w-25" name="workItem01Element" type="number" id="workItem01Element">
                 <button class="ms-2 fa-solid fa-plus" type="button"></button>
             </div>
-            <button type="button" id="generate">Generate</button>
+            <button type="button" id="generateButtonElement">Generate</button>
         </div>
 
         <div class="flex-column mb-3">
             <div class="d-flex me-4">
-                <label class="w-25" for="branchName">Branch Name</label>
-                <input class="w-75" name="branchName" type="text" id="branchName" disabled>
-                <span class="fa-regular fa-copy ms-2"></span>
+                <label class="w-25" for="branchNameElement">Branch Name</label>
+                <input class="w-75" name="branchNameElement" type="text" id="branchNameElement">
+                <span class="fa-regular fa-copy ms-2" id="branchNameCopyButtonElement"></span>
             </div>
             <div class="d-flex me-4">
-                <label class="w-25" for="commitMessage">Commit Message</label>
-                <input class="w-75" name="commitMessage" type="text" id="commitMessage" disabled>
-                <span class="fa-regular fa-copy ms-2"></span>
+                <label class="w-25" for="commitMessageElement">Commit Message</label>
+                <input class="w-75" name="commitMessageElement" type="text" id="commitMessageElement">
+                <span class="fa-regular fa-copy ms-2" id="commitMessageCopyButtonElement"></span>
             </div>
             <div class="d-flex me-4">
-                <label class="w-25" for="pullRequestTitle">Pull Request Title</label>
-                <input class="w-75" name="pullRequestTitle" type="text" id="pullRequestTitle" disabled>
-                <span class="fa-regular fa-copy ms-2"></span>
+                <label class="w-25" for="pullRequestTitleElement">Pull Request Title</label>
+                <input class="w-75" name="pullRequestTitleElement" type="text" id="pullRequestTitleElement">
+                <span class="fa-regular fa-copy ms-2" id="pullRequestTitleCopyButtonElement"></span>
             </div>
         </div>
     </form>
