@@ -8,11 +8,9 @@ var branchNameHTMLElement = document.getElementById('branchNameElement');
 var commitMessageHTMLElement = document.getElementById('commitMessageElement');
 var pullRequestTitleHTMLElement = document.getElementById('pullRequestTitleElement');
 
-document.getElementById('generateButtonElement').addEventListener('click', generate);
-
-document.getElementById('branchNameCopyButtonElement').addEventListener('click', copyBranchName);
-document.getElementById('commitMessageCopyButtonElement').addEventListener('click', copyCommitMessage);
-document.getElementById('pullRequestTitleCopyButtonElement').addEventListener('click', copyPullRequestTitle);
+var branchNameCopyButtonHTMLElement = document.getElementById('branchNameCopyButtonElement');
+var commitMessageCopyButtonHTMLElement = document.getElementById('commitMessageCopyButtonElement');
+var pullRequestTitleCopyButtonHTMLElement = document.getElementById('pullRequestTitleCopyButtonElement')
 
 function generate() {
     const workItemTitleOriginalValue = workItemTitleHTMLElement.value.toLowerCase();
@@ -32,8 +30,8 @@ function generate() {
     pullRequestTitleHTMLElement.value = pullRequestValue;
 }
 
-function copyBranchName() {
-    navigator.clipboard.writeText(branchNameHTMLElement.value)
+function copyHTMLElementValue(HTMLElement) {
+    navigator.clipboard.writeText(HTMLElement.value)
         .then(() => {
             // add toaster
         })
@@ -42,22 +40,28 @@ function copyBranchName() {
         });
 }
 
-function copyCommitMessage() {
-    navigator.clipboard.writeText(commitMessageHTMLElement.value)
+function copyWithFeedback(element, buttonElement) {
+    navigator.clipboard.writeText(element.value)
         .then(() => {
-            // add toaster
-        })
-        .catch(err => {
-            console.error("Failed to copy: ", err);
+            buttonElement.classList.replace("fa-regular", "fa-solid");
+            buttonElement.classList.replace("fa-copy", "fa-check");
+            setTimeout(() => {
+                buttonElement.classList.replace("fa-solid", "fa-regular");
+                buttonElement.classList.replace("fa-check", "fa-copy");
+            }, 1000);
         });
 }
 
-function copyPullRequestTitle() {
-    navigator.clipboard.writeText(pullRequestTitleHTMLElement.value)
-        .then(() => {
-            // add toaster
-        })
-        .catch(err => {
-            console.error("Failed to copy: ", err);
-        });
-}
+document.getElementById('generateButtonElement').addEventListener('click', generate);
+
+branchNameCopyButtonHTMLElement.addEventListener('click', () => copyHTMLElementValue(branchNameHTMLElement));
+commitMessageCopyButtonHTMLElement.addEventListener('click', () => copyHTMLElementValue(commitMessageHTMLElement));
+pullRequestTitleCopyButtonHTMLElement.addEventListener('click', () => copyHTMLElementValue(pullRequestTitleHTMLElement));
+
+branchNameCopyButtonHTMLElement
+    .addEventListener('click', () => copyWithFeedback(branchNameHTMLElement, branchNameCopyButtonHTMLElement));
+commitMessageCopyButtonHTMLElement
+    .addEventListener('click', () => copyWithFeedback(commitMessageHTMLElement, commitMessageCopyButtonHTMLElement));
+pullRequestTitleCopyButtonHTMLElement
+    .addEventListener('click', () => copyWithFeedback(pullRequestTitleHTMLElement, pullRequestTitleCopyButtonHTMLElement));
+
