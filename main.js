@@ -15,7 +15,7 @@ var pullRequestTitleCopyButtonHTMLElement = document.getElementById('pullRequest
 function generate() {
     const workItemTitleOriginalValue = workItemTitleHTMLElement.value.toLowerCase();
     const typeOriginalValue = typeHTMLElement.value.toLowerCase();
-    const areaOriginalValue = areaHTMLElement.value.toLowerCase();
+    const areaOriginalValue = toKebabCase(areaHTMLElement.value).toLowerCase();
     const workItem01OriginalValue = workItem01HTMLElement.value.toLowerCase();
 
     const workItemTitleValueDashed = workItemTitleOriginalValue.split(" ").join("-");
@@ -65,3 +65,8 @@ commitMessageCopyButtonHTMLElement
 pullRequestTitleCopyButtonHTMLElement
     .addEventListener('click', () => copyWithFeedback(pullRequestTitleHTMLElement, pullRequestTitleCopyButtonHTMLElement));
 
+function toKebabCase(value) {
+  return value
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2') // insert dash between lowercase/number and uppercase
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2'); // handle consecutive uppercase letters properly
+}
